@@ -31,7 +31,7 @@ class App extends Component {
                         if (Book.id === book.id) {
                             Book.shelf = shelf;
                         }
-                        return book;
+                        return Book;
                     }),
                 });
             } else {
@@ -49,7 +49,7 @@ class App extends Component {
                 {/* moveBook={this.changeBook()}/>} /> */}
                 
                 
-                <Route path="/store" render={() => <Search  books={this.state.books} />} />
+                <Route path="/store" render={() => <Search  books={this.state.books} moveBook={this.changeBook} />} />
             </div>
         );
     }

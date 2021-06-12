@@ -25,8 +25,7 @@ class BookList extends Component {
                                         {books
                                             .filter((b) => b.shelf === "currentlyReading")
                                             .map((b) => (
-                                                <Book book={b} key={b.id} moveBook ={()=>this.props.moveBook}/>
-                                                // moveBook={this.props.moveBook(books,books.shelf)}/>
+                                                <Book book={b} key={b.id} moveBook ={this.props.moveBook}/>
                                             ))}
                                     </ol>
                                 </div>
