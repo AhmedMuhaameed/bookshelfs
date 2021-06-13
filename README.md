@@ -9,6 +9,7 @@ open terminal run:
 > npm start
 
 **Project Description**
+
 My Reads Project is a book classification project which allows user to change book state between shelfs (`Currently Reading` , `Read` , `Want to Read`).
   
 **Project Dependancies**
