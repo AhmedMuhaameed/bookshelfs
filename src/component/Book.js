@@ -7,17 +7,17 @@ class Book extends Component {
     render() {
         let authors = "";
         let url = "";
-        if (authors.length > 0) {
+        try {
             authors = this.props.book.authors.join(",");
-        } else {
+        } catch {
             authors = "";
         }
-        try{
-
+        try {
             url = this.props.book.imageLinks.thumbnail ? this.props.book.imageLinks.thumbnail : this.props.book.imageLinks.smallthumbnail;
+        } catch (err) {
+            console.log("No books to show");
         }
-        catch(err){ console.log("No books to show")}
-        
+
         return (
             <li>
                 <div className="book">
@@ -35,9 +35,7 @@ class Book extends Component {
                                 <option value="move" disabled>
                                     Move to...
                                 </option>
-                                <option value="currentlyReading">
-                                    Currently Reading
-                                </option>
+                                <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="read">Read</option>
                                 <option value="none">None</option>

@@ -46,7 +46,6 @@ class App extends Component {
         return (
             <div>
                 <Route exact path="/" render={() => <BookList books={this.state.books} moveBook={this.changeBook} />}/>
-                {/* moveBook={this.changeBook()}/>} /> */}
                 
                 
                 <Route path="/store" render={() => <Search  books={this.state.books} moveBook={this.changeBook} />} />

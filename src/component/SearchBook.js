@@ -8,10 +8,10 @@ class Search extends Component {
         bookToShow: [],
     };
     searchBooks = async (query) => {
-        const books = await BooksAPI.search(query);
+        try {
+            const books = await BooksAPI.search(query);
 
-        let shelfBooks =
-            !books.error && books
+            let shelfBooks = books
                 ? books.map((book) => {
                       if (this.props.books.some((b) => b.id === book.id)) {
                           book.shelf = this.props.books.find((x) => x.id === book.id).shelf;
@@ -19,9 +19,12 @@ class Search extends Component {
                       return book;
                   })
                 : [];
-        this.setState({
-            bookToShow: shelfBooks,
-        });
+            this.setState({
+                bookToShow: shelfBooks,
+            });
+        } catch (err) {
+            alert(err.message);
+        }
     };
     render() {
         return (
